@@ -17,4 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/breeds', 'App\Http\Controllers\DogController@allBreeds');
+Route::get('/breeds', 'DogController@getAllBreeds');
+Route::get('/breed/random', 'DogController@getRandomBreed');
+Route::get('/breed/{id}/image', 'DogController@getImageByBreed');
+Route::get('/breed/{id}', 'DogController@getBreed');
