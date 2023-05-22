@@ -13,6 +13,7 @@ class ParkController extends Controller
         $park = Park::find($parkId);
         $breed = Breed::find($request->input('id'));
         $park->breeds()->save($breed);
+        $breed->parks()->save($park);
         return response()->json(['message' => 'Breed associated successfully', 200]);
     }
 }

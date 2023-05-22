@@ -34,7 +34,7 @@ class DogController extends Controller
         $breed = new Breed();
         $breed['id'] = $id;
         $res = $breedController->show($breed);
-        return response()->json(['breed' => $res], 200);
+        return response()->json(['breed' => $res->name, 'users' => $res->users, 'parks' => $res->parks], 200);
     }
 
     public function getRandomBreed()
