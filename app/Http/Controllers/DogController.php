@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 use App\Models\Breed;
 use App\Http\Controllers\BreedController;
 use App\Http\Requests\StoreBreedRequest;
+use Illuminate\Support\Facades\Redis;
 
 class DogController extends Controller
 {
@@ -22,6 +23,8 @@ class DogController extends Controller
             $storeRequest->name = $breed;
             $breedController->store($storeRequest);
         }
+
+        Redis::set('breeds', $breeds);
         return $breeds;
     }
 
