@@ -21,3 +21,6 @@ Route::get('/breeds', 'DogController@getAllBreeds');
 Route::get('/breed/random', 'DogController@getRandomBreed');
 Route::get('/breed/{id}/image', 'DogController@getImageByBreed');
 Route::get('/breed/{id}', 'DogController@getBreed');
+
+Route::post('/user/{id}/associate', 'UserController@associate');
+Route::post('/park/{id}/breed', 'ParkController@breed');

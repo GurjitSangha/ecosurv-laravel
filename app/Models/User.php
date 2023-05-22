@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Model\Park;
+use App\Models\Park;
+use App\Models\Breed;
 
 class User extends Authenticatable
 {
@@ -47,5 +48,10 @@ class User extends Authenticatable
     public function parks()
     {
         return $this->morphToMany(Park::class, 'parkable');
+    }
+
+    public function breeds()
+    {
+        return $this->morphToMany(Breed::class, 'breedable');
     }
 }
